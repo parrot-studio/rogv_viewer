@@ -1,0 +1,27 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="<%= url_for(:index) %>">Wanna Be Free!! (for <%= ROGv::ServerConfig.server_name %>)</a>
+      <ul class="nav">
+        <li><%= link_to("Call Rankers", url_for(:index)) %></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Result <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <% @dates.each do |d| %>
+              <li><%= link_to(devided_date(d), url_for(:result, d)) %></li>
+            <% end %>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Call Ranking <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <% @dates.each do |d| %>
+              <li><%= link_to(devided_date(d), url_for(:call, d)) %></li>
+            <% end %>
+          </ul>
+        </li>
+        <li><%= link_to('About', url_for(:about)) %></li>
+      </ul>
+    </div>
+  </div>
+</div>

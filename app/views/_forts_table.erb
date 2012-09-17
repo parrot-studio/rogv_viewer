@@ -1,0 +1,36 @@
+<h3>Fort Rulers</h3>
+<table class="table-striped table-bordered">
+  <thead>
+    <tr>
+      <th class="span2"><br/></th>
+      <th class="span3">1</th>
+      <th class="span3">2</th>
+      <th class="span3">3</th>
+      <th class="span3">4</th>
+      <th class="span3">5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% forts = @result.forts_map; guilds = @result.guild_map
+    fort_types.each do |map| %>
+      <tr>
+        <th class="span2"><%=h map %></th>
+        <% fort_nums.each do |num|
+          f = forts["#{map}#{num}"]
+          if f %>
+            <td class="span3">
+              <p>
+                <small><%=h f.fort_name %></small><br/>
+                <span class="guild-name" rel="tooltip" title="Call : <%= guilds[f.guild_name].called_count %>">
+                  <strong><%=h f.guild_name %></strong>
+                </span>
+              </p>
+            </td>
+          <% else %>
+            <td class="span3">-</td>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

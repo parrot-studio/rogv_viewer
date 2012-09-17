@@ -1,0 +1,50 @@
+<%
+guild_map = if @call_date
+  rsl = {}
+  each_fort_id do |fid|
+    f = @result.forts_map[fid]
+    next unless f
+    gn = f.guild_name
+    if rsl[gn]
+      rsl[gn] << f.fort_name
+    else
+      rsl[gn] = [f.fort_name]
+    end
+  end
+  rsl
+else
+  {}
+end
+%>
+
+<div class="row">
+  <div class="span6">
+    <table class="table table-striped  table-condensed">
+      <thead>
+        <tr>
+          <th class="span1">Rank</th>
+          <th class="span3">Guild</th>
+          <th class="span1">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% each_rankers_for_view(@result) do |vrank, gname, count| %>
+          <tr>
+            <td><%= vrank %></td>
+            <td>
+              <% fs = guild_map[gname]
+              if fs %>
+                <span class="guild-name" rel="tooltip" title="<%=h fs.join(',') %>">
+                  <%= link_to(gname, url_for(:result, @call_date)) %>
+                </span> 
+              <% else %>
+                <%=h gname %>
+              <% end %>
+            </td>
+            <td><%= count %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

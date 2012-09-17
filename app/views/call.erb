@@ -1,0 +1,39 @@
+<% @call_date = @result.gv_date %>
+<div class="row">
+  <div class="span7">
+    <h2>Call Ranking : <%= devided_date(@call_date) %></h2>
+  </div>
+  <div class="span5">
+    <%= partial :menu %>
+  </div>
+</div>
+<div class="row">
+  <div class="span12">
+    <hr/>
+  </div>
+</div>
+<%= partial :call_rank %>
+<% before = @result.before; after = @result.after %>
+<div class="row">
+  <div class="span12 center">
+    <div class="btn-toolbar">
+      <div class="btn-group">
+        <% if before %>
+          <a class="btn btn-primary" href="<%= url_for(:call, before.gv_date) %>">&laquo; <%= devided_date(before.gv_date) %></a>
+        <% else %>
+          <button class="btn disabled">&laquo &nbsp;&nbsp;&nbsp;Prev&nbsp;&nbsp;&nbsp;</button>
+        <% end %>
+      </div>
+      <div class="btn-group">
+        <a class="btn btn-info" href="<%= url_for(:index) %>">Top</a>
+      </div>
+      <div class="btn-group">
+        <% if after %>
+          <a class="btn btn-primary" href="<%= url_for(:call, after.gv_date) %>"><%= devided_date(after.gv_date) %> &raquo;</a>
+        <% else %>
+          <button class="btn disabled">&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp; &raquo;</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

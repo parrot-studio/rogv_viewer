@@ -1,0 +1,39 @@
+development:
+  :server_name: Nounai
+  :db:
+    :name: rogv_view
+    :user: hoge
+    :pass: piyo
+  :memcache:
+    :server: localhost
+    :port: 11211
+    :header: devel
+  :use_cache: true
+  :result_size: 6
+  :update_accept_host: localhost
+test:
+  :server_name: SakrayJ
+  :db:
+    :name: rogv_view
+    :user: hoge
+    :pass: piyo
+  :memcache:
+    :server: localhost
+    :port: 11211
+    :header: test
+  :use_cache: false
+  :result_size: 6
+  :update_accept_host: localhost
+production:
+  :server_name: Gimle
+  :db:
+    :name: rogv_view
+    :user: hoge
+    :pass: piyo
+  :memcache:
+    :server: localhost
+    :port: 11211
+    :header: hoge
+  :use_cache: true
+  :result_size: 6
+  :update_accept_host: localhost

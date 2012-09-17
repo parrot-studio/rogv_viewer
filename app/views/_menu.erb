@@ -1,0 +1,24 @@
+<div class="btn-toolbar">
+  <div class="btn-group">
+    <a class="btn btn-info" href="<%= url_for(:index) %>">Call Rankers</a>
+  </div>
+  <div class="btn-group">
+    <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Result <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+      <% @dates.each do |d| %>
+        <li><%= link_to(devided_date(d), url_for(:result, d)) %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="btn-group">
+    <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Call Ranking <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+      <% @dates.each do |d| %>
+        <li><%= link_to(devided_date(d), url_for(:call, d)) %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="btn-group">
+    <a class="btn" href="<%= url_for(:about) %>">About</a>
+  </div>
+</div>

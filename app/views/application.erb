@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= stylesheet_link_tag 'bootstrap', 'main' %>
+    <title>Wanna Be Free!! (for <%= ROGv::ServerConfig.server_name %>)</title>
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <%= partial :topnav %>
+    <div class="container">
+      <div class="well">
+        <h1>Wanna Be Free!! <small>(for <%= ROGv::ServerConfig.server_name %>)</small></h1>
+        <p>- GvG Battlers of Ragnarok Online -</p>
+      </div>
+      <%= yield %>
+    </div>
+    <hr>
+    <footer>
+      <%= partial :footer %>
+    </footer>
+    <%= javascript_include_tag 'jquery', 'bootstrap', 'application' %>
+  </body>
+</html>

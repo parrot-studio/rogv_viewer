@@ -1,0 +1,11 @@
+body {
+  padding-top: 40px;
+}
+
+td.attention {
+  color: crimson;
+}
+
+.center {
+  text-align: center;
+}
