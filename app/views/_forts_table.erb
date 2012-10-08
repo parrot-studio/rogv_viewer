@@ -17,11 +17,12 @@
         <th class="span2"><%=h map %></th>
         <% fort_nums.each do |num|
           f = forts["#{map}#{num}"]
+          g = guilds[f.guild_name]
           if f %>
             <td class="span3">
               <p>
                 <small><%=h f.fort_name %></small><br/>
-                <span class="guild-name" rel="tooltip" title="Call : <%= guilds[f.guild_name].called_count %>">
+                <span class="guild-name" rel="tooltip" title="Call : <%= g ? g.called_count : 0 %>">
                   <strong><%=h f.guild_name %></strong>
                 </span>
               </p>
